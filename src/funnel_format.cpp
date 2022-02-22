@@ -14,5 +14,4 @@ using namespace std;
 
 vector<string> generate_funnel_format(string gwasFileName, int numCols)
 {
-
 }

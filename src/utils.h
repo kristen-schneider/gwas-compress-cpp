@@ -12,4 +12,6 @@ using namespace std;
 #include <string>
 #include <vector>
 
-int get_number_columns(string gwasFileName);
+vector<string> splitString(string s, char delim);
+int countNumberColumns(string gwasFileName, char delim);
+vector<string> returnFileHeader(string gwasFileName, int numCols, char delim);
