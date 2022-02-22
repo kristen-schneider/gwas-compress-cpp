@@ -17,6 +17,8 @@ private:
     int numColumns;
     string delimiter;
 public:
+    GWASFile(int numColumns, string delimiter);
+
     // setters
     void setNumColumns(int setNumColumns);
     void setFileDelimiter(string setFileDelimiter);

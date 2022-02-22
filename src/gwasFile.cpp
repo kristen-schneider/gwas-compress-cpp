@@ -7,7 +7,8 @@
 using namespace std;
 
 
-GWASFile::GWASFile(int, string){
+GWASFile::GWASFile(int numColumns, string delimiter){
+
 }
 
 // setters
