@@ -10,4 +10,4 @@
 using namespace std;
 #include <string>
 
-int generate_funnel_format(string gwasFileName);
+vector<vector<string>> generate_block(string gwasFileName, int blockSize);
