@@ -11,5 +11,3 @@ using namespace std;
 #include <string>
 
 int generate_funnel_format(string gwasFileName);
-int get_number_columns(string gwasFileName);
-vector<string> get_file_header(string gwasFileName, int numCols);
