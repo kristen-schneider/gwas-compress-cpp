@@ -22,6 +22,7 @@ int main() {
     cout << "Getting starter data..." << endl;
     cout << "Number of columns: " << numCols << endl;
     fileHeader = returnFileHeader(gwasFileName, numCols, delim);
+    //PRINTING--FOR DEBUG
     cout << "File header:" << endl;
     for (int i = 0; i < fileHeader.size(); i++) { cout << fileHeader.at(i) << " "; }
     cout << endl;
@@ -29,14 +30,15 @@ int main() {
     // generate funnel format
     cout << "Generating funnel format..." << endl;
     allBlocks = generate_block(gwasFileName, blockSize);
-
-    cout << "Blocks:" << endl;
+    //PRINTING--FOR DEBUG
+    cout << "ALL BLOCKS:" << endl;
     for (int i = 0; i < allBlocks.size(); i++) {
         vector<string> currBlock = allBlocks.at(i);
-        cout << "Block " << i;
-        for (int j = 0; j < numCols; j++) {
-            cout << currBlock.at(j);
+        cout << "Block " << i << endl;
+        for (int j = 0; j < currBlock.size(); j++) {
+            cout << currBlock.at(j) << endl;
         }
+        cout << endl;
     }
     cout << endl;
 
