@@ -10,15 +10,13 @@ using namespace std;
 #include <fstream>
 
 
-int get_number_columns(string gwasFileName)
-{
+int countNumberColumns(string gwasFileName){
     int numCols = 0;
     ifstream gwasFile;
 
     // opening file
     gwasFile.open(gwasFileName);
-    if (!gwasFile.is_open())
-    {
+    if (!gwasFile.is_open()){
         cout << "Cannot open file: " << gwasFileName << endl;
         return -1;
     }
@@ -27,10 +25,9 @@ int get_number_columns(string gwasFileName)
     return numCols;
 }
 
-vector<string> get_file_header(string gwasFileName, int numCols)
-{
+vector<string> returnFileHeader(string gwasFileName, int numCols){
     vector<string> fileHeader;
 
-    return fileHeader
+    return fileHeader;
 }
 
