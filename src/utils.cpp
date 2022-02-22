@@ -17,7 +17,9 @@ vector<string> splitString(string s, char delim){
     stringstream ss;
 
     ss.str(s);
+
     getline(ss, h, delim);
+    vectorString.push_back(h);
     while(getline(ss, h, delim)){
         vectorString.push_back(h);
     }
@@ -40,10 +42,9 @@ int countNumberColumns(string gwasFileName, char delim){
 
     // read first line (header)
     getline(gwasFile, header);
-    cout << header << endl;
-
     // parse header
     vectorHeader = splitString(header, delim);
+    numCols = vectorHeader.size();
 
     // closing file
     gwasFile.close();
