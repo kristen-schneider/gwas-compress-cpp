@@ -11,7 +11,35 @@ using namespace std;
 #include "funnel_format.h"
 
 
+vector<vector<string>> generate_block(string gwasFileName, int blockSize){
+    ifstream gwasFile;
+    string header = "";
+    string row;
+    vector<string> block;
+    vector<vector<string>> allBlocks;
+    int r = 0;
 
-vector<string> generate_funnel_format(string gwasFileName, int numCols)
-{
+    // opening file
+    gwasFile.open(gwasFileName);
+    if (!gwasFile.is_open()){
+        cout << "Cannot open file: " << gwasFileName << endl;
+        EXIT_FAILURE;
+    }
+
+    // reading one block at a time
+    while(r < blockSize && getline(gwasFile, header)){
+        if(header == ""){
+            getline(gwasFile, header);
+        }else{
+            getline(gwasFile, row);
+            block.push_back(row);
+        }
+        r++;
+
+        if(r == blockSize){
+            allBlocks.push_back(block);
+            r = 0;
+        }
+    }
+    return allBlocks;
 }
