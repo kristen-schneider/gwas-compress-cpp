@@ -37,7 +37,7 @@ int countNumberColumns(string gwasFileName, char delim){
     gwasFile.open(gwasFileName);
     if (!gwasFile.is_open()){
         cout << "Cannot open file: " << gwasFileName << endl;
-        return -1;
+        EXIT_FAILURE;
     }
 
     // read first line (header)
@@ -51,9 +51,24 @@ int countNumberColumns(string gwasFileName, char delim){
     return numCols;
 }
 
-//vector<string> returnFileHeader(string gwasFileName, int numCols){
-//    vector<string> fileHeader;
-//
-//    return fileHeader;
-//}
+vector<string> returnFileHeader(string gwasFileName, int numCols, char delim){
+    ifstream gwasFile;
+    string header;
+    string h;
+    vector<string> vectorHeader;
+
+    // opening file
+    gwasFile.open(gwasFileName);
+    if (!gwasFile.is_open()){
+        cout << "Cannot open file: " << gwasFileName << endl;
+        EXIT_FAILURE;
+    }
+
+    // read first line (header)
+    getline(gwasFile, header);
+    // parse header
+    vectorHeader = splitString(header, delim);
+
+    return vectorHeader;
+}
 

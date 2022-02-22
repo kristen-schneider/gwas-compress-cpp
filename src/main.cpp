@@ -17,7 +17,10 @@ int main() {
 
     // get information needed for compression
     numCols = countNumberColumns(gwasFileName, delim);
-    cout << numCols << endl;
+    cout << "Number of columns: " << numCols << endl;
+    fileHeader = returnFileHeader(gwasFileName, numCols, delim);
+    cout << "File header:" << endl;
+    for(int i = 0; i < fileHeader.size(); i++){cout << fileHeader.at(i) << " ";}
 
 //    // generate funnel format
 //    cout << "Generating funnel format...\n" << endl;
