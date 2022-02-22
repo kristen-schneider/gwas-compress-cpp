@@ -7,7 +7,7 @@ using namespace std;
 
 
 /// probably wrong way to define this
-string delim = "\t";
+char delim = '\t';
 ///
 
 int main() {

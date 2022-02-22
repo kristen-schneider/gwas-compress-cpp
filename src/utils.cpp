@@ -11,16 +11,20 @@ using namespace std;
 #include <fstream>
 #include "utils.h"
 
-vector<string> splitString(string s, string delim){
-    vector<string> vectorHeader;
-
+vector<string> splitString(string s, char delim){
+    string h;
+    vector<string> vectorString;
     stringstream ss;
-    ss.str(s);
 
-    return vectorHeader;
+    ss.str(s);
+    getline(ss, h, delim);
+    while(getline(ss, h, delim)){
+        vectorString.push_back(h);
+    }
+    return vectorString;
 }
 
-int countNumberColumns(string gwasFileName, string delim){
+int countNumberColumns(string gwasFileName, char delim){
     int numCols = 0;
     ifstream gwasFile;
     string header;
