@@ -22,7 +22,7 @@ int main() {
     cout << "File header:" << endl;
     for(int i = 0; i < fileHeader.size(); i++){cout << fileHeader.at(i) << " ";}
 
-//    // generate funnel format
+    // generate funnel format
 //    cout << "Generating funnel format...\n" << endl;
 //    numCols = countNumberColumns(gwasFileName);
 //    fileHeader = returnFileHeader(gwasFileName, numCols);
