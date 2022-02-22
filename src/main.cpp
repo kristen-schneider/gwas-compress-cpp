@@ -5,18 +5,23 @@
 #include "utils.h"
 using namespace std;
 
+
+/// probably wrong way to define this
+string delim = "\t";
+///
+
 int main() {
     string gwasFileName = "../data/ten.tsv";
     int numCols;
     vector<string> fileHeader;
 
     // get information needed for compression
-    numCols = countNumberColumns(gwasFileName)
+    numCols = countNumberColumns(gwasFileName, delim);
 
-    // generate funnel format
-    cout << "Generating funnel format...\n" << endl;
-    numCols = countNumberColumns(gwasFileName);
-    fileHeader = returnFileHeader(gwasFileName, numCols);
+//    // generate funnel format
+//    cout << "Generating funnel format...\n" << endl;
+//    numCols = countNumberColumns(gwasFileName);
+//    fileHeader = returnFileHeader(gwasFileName, numCols);
 
     // compress funnel format
 
