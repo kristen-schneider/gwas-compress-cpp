@@ -12,12 +12,7 @@ using namespace std;
 
 
 
-vector<string> get_file_header(string gwasFileName, int numCols)
-{
-    vector<string> fileHeader;
 
-    return fileHeader
-}
 
 vector<string> generate_funnel_format(string gwasFileName, int numCols)
 {

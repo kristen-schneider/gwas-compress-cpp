@@ -13,3 +13,4 @@ using namespace std;
 #include <vector>
 
 int get_number_columns(string gwasFileName);
+vector<string> get_file_header(string gwasFileName, int numCols);

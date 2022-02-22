@@ -27,3 +27,10 @@ int get_number_columns(string gwasFileName)
     return numCols;
 }
 
+vector<string> get_file_header(string gwasFileName, int numCols)
+{
+    vector<string> fileHeader;
+
+    return fileHeader
+}
+
