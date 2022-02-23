@@ -17,40 +17,27 @@ int main() {
     6. write compressed data
     */
 
-    // 0.1 getting pre-info: TO CHANGE (config file)
-    char delim = '\t';
-    int blockSize = 3;
-    string gwasFileName = "../data/c10r10.tsv";
+    // 0 & 1 setting space for compression header
+    // 0: input info should be read in from config file (
+    // 1: (delimiter, blockSize, gwasHeader, columnTypes, numColumns)
+    string gwasFileName = "../data/c10r11.tsv";
 
-    //
-    int numCols;
-    vector<string> fileHeader;
+    char delimiter = '\t';
+    int blockSize = 3;
+    vector<string> gwasHeader;
+    vector<int> columnTypes; // 0-int, 1-float, 2-string, 3-bool
+    int numColumns;
+
+    cout << "Getting starter data..." << endl;
+    numColumns = countNumberColumns(gwasFileName, delimiter);
+    gwasHeader = returnFileHeader(gwasFileName, numColumns, delimiter);
+
+
+    // 2: generates funnel format (vector of vector of strings)
     vector<vector<string>> allBlocks;
 
-    // get information needed for compression
-    numCols = countNumberColumns(gwasFileName, delim);
-    cout << "Getting starter data..." << endl;
-    cout << "Number of columns: " << numCols << endl;
-    fileHeader = returnFileHeader(gwasFileName, numCols, delim);
-    //PRINTING--FOR DEBUG
-    cout << "File header:" << endl;
-    for (int i = 0; i < fileHeader.size(); i++) { cout << fileHeader.at(i) << " "; }
-    cout << endl;
-
-    // generate funnel format
     cout << "Generating funnel format..." << endl;
     allBlocks = generate_block(gwasFileName, blockSize);
-    //PRINTING--FOR DEBUG
-    cout << "ALL BLOCKS:" << endl;
-    for (int i = 0; i < allBlocks.size(); i++) {
-        vector<string> currBlock = allBlocks.at(i);
-        cout << "Block " << i << endl;
-        for (int j = 0; j < currBlock.size(); j++) {
-            cout << currBlock.at(j) << endl;
-        }
-        cout << endl;
-    }
-    cout << endl;
 
     // compress funnel format
 
