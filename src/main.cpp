@@ -3,6 +3,7 @@
 #include <vector>
 #include "funnelFormat.h"
 #include "utils.h"
+#include "gzip.h"
 using namespace std;
 
 int main() {
@@ -41,7 +42,8 @@ int main() {
 
     // 3: compress funnel format, return second half of header
 
-
+    //int gzipCompress(int argc, char** argv);
+//    int gz = gzipCompress()
 
     return 0;
 }
