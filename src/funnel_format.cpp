@@ -10,8 +10,38 @@ using namespace std;
 #include <fstream>
 #include "funnel_format.h"
 
+vector<vector<string>> generate_block(string gwasFileName, int blockSize){
+    ifstream gwasFile;
+    string header = "";
+    string row;
+    vector<string> block;
+    vector<vector<string> > allBlocks;
+    int r = 0;
 
+    // opening file
+    gwasFile.open(gwasFileName);
+    if (!gwasFile.is_open()){
+        cout << "Cannot open file: " << gwasFileName << endl;
+        EXIT_FAILURE;
+    }
 
-vector<string> generate_funnel_format(string gwasFileName, int numCols)
-{
+    // reading one block at a time
+    while(r < blockSize && getline(gwasFile, row)){
+        if(header == ""){
+            header = row;
+        }else{
+            block.push_back(row);
+            r++;
+        }
+        if(r == blockSize){
+            allBlocks.push_back(block);
+            block.clear();
+            r = 0;
+        }
+    }
+    // any left over data that is less than a full block size
+    if(!block.empty()){
+        allBlocks.push_back(block);
+    }
+    return allBlocks;
 }
