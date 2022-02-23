@@ -5,14 +5,24 @@
 #include "utils.h"
 using namespace std;
 
-
-/// probably wrong way to define this
-char delim = '\t';
-int blockSize = 3;
-///
-
 int main() {
+
+    /*
+    0. get arguments from user to run compression according to their preferences
+    1. gets beginning of header (magic number, version, delimiter, column labels, column types, num columns, gzip header)
+    2. generates funnel format (list of blocks)
+    3. compress data and get second half of header *depends on input data type and compression data type
+    4. compress full header
+    5. write compressed header
+    6. write compressed data
+    */
+
+    // 0.1 getting pre-info: TO CHANGE (config file)
+    char delim = '\t';
+    int blockSize = 3;
     string gwasFileName = "../data/c10r10.tsv";
+
+    //
     int numCols;
     vector<string> fileHeader;
     vector<vector<string>> allBlocks;
