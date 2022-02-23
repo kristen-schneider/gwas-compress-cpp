@@ -3,7 +3,7 @@
 #include <vector>
 #include "funnelFormat.h"
 #include "utils.h"
-#include "gzip.h"
+#include "gzip_wrapper.h"
 using namespace std;
 
 int main() {
