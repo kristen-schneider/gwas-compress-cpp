@@ -8,7 +8,7 @@ using namespace std;
 #include <string>
 #include <vector>
 #include <fstream>
-#include "funnel_format.h"
+#include "funnelFormat.h"
 
 vector<vector<string>> generate_block(string gwasFileName, int blockSize){
     ifstream gwasFile;

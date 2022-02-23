@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "funnel_format.h"
+#include "funnelFormat.h"
 #include "utils.h"
 using namespace std;
 
