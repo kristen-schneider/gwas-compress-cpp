@@ -10,8 +10,7 @@ using namespace std;
 #include <fstream>
 #include "funnel_format.h"
 
-
-vector<vector<string> > generate_block(string gwasFileName, int blockSize){
+vector<vector<string>> generate_block(string gwasFileName, int blockSize){
     ifstream gwasFile;
     string header = "";
     string row;
