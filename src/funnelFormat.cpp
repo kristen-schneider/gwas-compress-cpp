@@ -2,13 +2,12 @@
 // Created by Kristen Schneider on 1/27/22.
 //
 
-using namespace std;
-
 #include <iostream>
 #include <string>
 #include <vector>
 #include <fstream>
 #include "funnelFormat.h"
+using namespace std;
 
 vector<vector<string>> generate_block(string gwasFileName, int blockSize){
     ifstream gwasFile;
