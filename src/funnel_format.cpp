@@ -11,12 +11,12 @@ using namespace std;
 #include "funnel_format.h"
 
 
-vector<vector<string>> generate_block(string gwasFileName, int blockSize){
+vector<vector<string> > generate_block(string gwasFileName, int blockSize){
     ifstream gwasFile;
     string header = "";
     string row;
     vector<string> block;
-    vector<vector<string>> allBlocks;
+    vector<vector<string> > allBlocks;
     int r = 0;
 
     // opening file

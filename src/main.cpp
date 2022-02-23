@@ -12,7 +12,7 @@ int blockSize = 3;
 ///
 
 int main() {
-    string gwasFileName = "../data/ten.tsv";
+    string gwasFileName = "../data/c10r10.tsv";
     int numCols;
     vector<string> fileHeader;
     vector<vector<string>> allBlocks;
