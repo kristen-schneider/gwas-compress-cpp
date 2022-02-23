@@ -39,7 +39,8 @@ int main() {
     cout << "Generating funnel format..." << endl;
     allBlocks = generate_block(gwasFileName, blockSize);
 
-    // compress funnel format
+    // 3: compress funnel format, return second half of header
+
 
 
     return 0;
