@@ -23,7 +23,7 @@ int main() {
     // 0 & 1 setting space for compression header
     // 0: input info should be read in from config file (
     // 1: (delimiter, blockSize, gwasHeader, columnTypes, numColumns)
-    string gwasFileName = "../data/c10r1.tsv";
+    string gwasFileName = "../data/c10-r1-tab.tsv";
 
     char delimiter = '\t';
     int blockSize = 3;
