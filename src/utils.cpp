@@ -2,14 +2,13 @@
 // Created by Kristen Schneider on 2/22/22.
 //
 
-using namespace std;
-
 #include <string>
 #include <sstream>
 #include <vector>
 #include <iostream>
 #include <fstream>
 #include "utils.h"
+using namespace std;
 
 vector<string> splitString(string s, char delim){
     string h;
