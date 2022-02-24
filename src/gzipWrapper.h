@@ -7,6 +7,9 @@
 
 #endif //CPRACTICE_GZIP_H
 
+#include <iostream>
+using namespace std;
+
 
 string gzipCompress(string data);
 string gzipDecompress(string compressedData);

@@ -4,7 +4,7 @@
 #include "utils.h"
 #include "funnelFormat.h"
 #include "funnelFormatCompress.h"
-#include "gzip_wrapper.h"
+#include "gzipWrapper.h"
 
 using namespace std;
 

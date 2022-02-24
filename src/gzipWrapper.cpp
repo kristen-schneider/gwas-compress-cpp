@@ -3,8 +3,9 @@
 #include <boost/iostreams/filtering_stream.hpp>
 #include <boost/iostreams/copy.hpp>
 #include <boost/iostreams/filter/gzip.hpp>
-#include <../lib/boost_1_78_0/libs/iostreams/src/zlib.cpp>
-#include <../lib/boost_1_78_0/libs/iostreams/src/gzip.cpp>
+#include "../lib/boost_1_78_0/libs/iostreams/src/zlib.cpp"
+#include "../lib/boost_1_78_0/libs/iostreams/src/gzip.cpp"
+#include "gzipWrapper.h"
 
 using namespace std;
 using namespace boost::iostreams;

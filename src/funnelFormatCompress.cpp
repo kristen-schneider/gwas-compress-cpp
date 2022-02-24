@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include "funnelFormatCompress.h"
-#include "gzip_wrapper.h"
+#include "gzipWrapper.h"
 
 using namespace std;
 
