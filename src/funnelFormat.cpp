@@ -44,6 +44,7 @@ vector<vector<vector<string>>> generate_block(string gwasFileName, int blockSize
     }
     // any left over data that is less than a full block size
     if(!block.empty()){
+        colBlock = transposeBlock(block, delim, numCols);
         allBlocks.push_back(colBlock);
     }
     return allBlocks;

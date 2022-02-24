@@ -6,9 +6,35 @@
 #include <string>
 #include <vector>
 #include "funnelFormatCompress.h"
+#include "gzip_wrapper.h"
 
 using namespace std;
 
-string compress_block(vector<vector<string>> allBlocks){
+vector<string> compressAllBlocks(vector<vector<vector<string>>> allBlocks, int numCols, int blockSize){
+    vector<string> allCompressedBlocks;
+    vector<vector<string>> currentBlock;
 
+    for(int blockIndex = 0; blockIndex < allBlocks.size(); blockIndex++){
+        currentBlock = allBlocks.at(blockIndex);
+        string compressedBlock = compressSingleBlock(currentBlock, numCols);
+        allCompressedBlocks.push_back(compressedBlock);
+    }
+    return allCompressedBlocks;
+}
+
+string compressSingleBlock(vector<vector<string>> block, int numCols){
+    string compressedBlock;
+    vector<string> currentColumn;
+    string currentElement;
+
+    for (int columnIndex = 0; columnIndex < numCols; columnIndex++) {
+        currentColumn = block.at(columnIndex);
+        for (int elementIndex = 0; elementIndex < currentColumn.size(); elementIndex++) {
+            currentElement = currentColumn.at(elementIndex);
+            string compressedElement = gzipCompress(currentElement);
+            compressedBlock += compressedElement;
+        }
+    }
+
+    return compressedBlock;
 }

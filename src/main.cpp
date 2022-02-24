@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "funnelFormat.h"
 #include "utils.h"
+#include "funnelFormat.h"
+#include "funnelFormatCompress.h"
 #include "gzip_wrapper.h"
+
 using namespace std;
 
 int main() {
@@ -21,7 +23,7 @@ int main() {
     // 0 & 1 setting space for compression header
     // 0: input info should be read in from config file (
     // 1: (delimiter, blockSize, gwasHeader, columnTypes, numColumns)
-    string gwasFileName = "../data/c10r11.tsv";
+    string gwasFileName = "../data/c10r1.tsv";
 
     char delimiter = '\t';
     int blockSize = 3;
@@ -37,15 +39,16 @@ int main() {
 
 
     // 2: generates funnel format (vector of vector of strings)
+    cout << endl << "Generating funnel format..." << endl;
+
     vector<vector<vector<string>>> allBlocks;
 
-    cout << "Generating funnel format..." << endl;
     allBlocks = generate_block(gwasFileName, blockSize, delimiter, numColumns);
     for(int b = 0; b < allBlocks.size(); b++){
         vector<vector<string>> currBlock = allBlocks.at(b);
         for(int c = 0; c < numColumns; c++){
             vector<string> currCol = currBlock.at(c);
-            for(int r = 0; r < blockSize; r++){
+            for(int r = 0; r < currCol.size(); r++){
                 cout << currCol.at(r) << ",";
             }
             cout << " ";
@@ -54,11 +57,11 @@ int main() {
     }
 
     // 3: compress funnel format, return second half of header
-    cout << "Compressing with gzip..." << endl;
+    cout << endl << "Compressing with gzip..." << endl;
 
+    vector<string> allCompressedBlocks;
 
-
-
+    allCompressedBlocks = compressAllBlocks(allBlocks, numColumns, blockSize);
 
     return 0;
 }
