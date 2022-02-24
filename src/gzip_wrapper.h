@@ -10,4 +10,4 @@
 
 string gzipCompress(string data);
 string gzipDecompress(string compressedData);
-string returnGzipHeader(string compressedData);
+string returnGzipHeader(void);

@@ -22,7 +22,7 @@ string gzipCompress(string data) {
     }
 
     // return compressed string without header
-    return compressedString;//.erase(0,10);
+    return compressedString.substr(10);
 }
 
 string gzipDecompress(string compressedData){
@@ -38,8 +38,16 @@ string gzipDecompress(string compressedData){
     return decompressedString;
 }
 
-string returnGzipHeader(string s){
+string returnGzipHeader(){
     // return gzip header (same for all input streams)
-    return gzipCompress(s).substr(0,10);
+    string compressedString;
+    {
+        filtering_ostream compressingStream;
+        compressingStream.push(gzip_compressor(gzip_params(gzip::best_compression)));
+        compressingStream.push(boost::iostreams::back_inserter(compressedString));
+        compressingStream << "";
+        close(compressingStream);
+    }
+    return compressedString.substr(0,10);
 }
 
