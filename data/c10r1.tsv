@@ -1,0 +1,2 @@
+chr	pos	ref	alt	af_cases_EUR	af_controls_EUR	beta_EUR	se_EUR	pval_EUR	low_confidence_EUR
+1	11063	T	G	4.213e-05	4.799e-05	-1.334e+00	9.999e+00	8.938e-01	true
