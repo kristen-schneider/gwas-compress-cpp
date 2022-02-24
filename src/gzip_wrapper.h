@@ -8,4 +8,6 @@
 #endif //CPRACTICE_GZIP_H
 
 
-int gzipCompress(int argc, char** argv);
+string gzipCompress(string data);
+string gzipDecompress(string compressedData);
+string returnGzipHeader(string compressedData);

@@ -41,9 +41,25 @@ int main() {
     allBlocks = generate_block(gwasFileName, blockSize);
 
     // 3: compress funnel format, return second half of header
+    cout << "Compressing with gzip..." << endl;
 
-    //int gzipCompress(int argc, char** argv);
-//    int gz = gzipCompress()
+    string k = "kristenalskjglaksj";
+    string compressedk = gzipCompress(k);
+    string decompressedk = gzipDecompress(compressedk);
+    string firstk = compressedk.substr(0,10);
+    string list = compressedk.substr(0);
+    string headerk = returnGzipHeader(compressedk);
+    string brokenk1 = compressedk.substr(10);
+    string brokenk2 = compressedk.erase(0,10);
+    string restoredk = headerk + brokenk1;
+
+    cout << (headerk).compare(firstk) << endl;
+    cout << (firstk).compare(headerk) << endl;
+    cout << (brokenk1).compare(brokenk2) << endl;
+    cout << (compressedk).compare(restoredk) << endl;
+    cout << (list).compare(restoredk) << endl;
+
+
 
     return 0;
 }
