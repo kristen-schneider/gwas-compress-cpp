@@ -11,15 +11,17 @@ using namespace std;
 using namespace boost::iostreams;
 
 
-string gzipCompress(string data) {
+string gzipCompress(string s) {
+    cout << endl << s << " " << s.size() << endl;
     string compressedString;
     {
         filtering_ostream compressingStream;
         compressingStream.push(gzip_compressor(gzip_params(gzip::best_compression)));
         compressingStream.push(boost::iostreams::back_inserter(compressedString));
-        compressingStream << data;
+        compressingStream << s;
         close(compressingStream);
     }
+    cout << compressedString << " " << compressedString.size() << endl;
 
     // return compressed string without header
     return compressedString.substr(10);

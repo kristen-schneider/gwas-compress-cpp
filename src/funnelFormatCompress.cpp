@@ -29,6 +29,10 @@ string compressSingleBlock(vector<vector<string>> block, int numCols){
 
     for (int columnIndex = 0; columnIndex < numCols; columnIndex++) {
         currentColumn = block.at(columnIndex);
+
+        // i think what i want to do here is convert the vector of strings to a bistring.
+        // then compress the bitstring
+        
         for (int elementIndex = 0; elementIndex < currentColumn.size(); elementIndex++) {
             currentElement = currentColumn.at(elementIndex);
             string compressedElement = gzipCompress(currentElement);
