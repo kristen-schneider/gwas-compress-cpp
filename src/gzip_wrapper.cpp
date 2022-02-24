@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
-#include <../lib/boost_1_78_0/boost/iostreams/filtering_streambuf.hpp>
-#include <../lib/boost_1_78_0/boost/iostreams/filtering_stream.hpp>
-#include <../lib/boost_1_78_0/boost/iostreams/copy.hpp>
-#include <../lib/boost_1_78_0/boost/iostreams/filter/gzip.hpp>
+#include <boost/iostreams/filtering_stream.hpp>
+#include <boost/iostreams/copy.hpp>
+#include <boost/iostreams/filter/gzip.hpp>
 #include <../lib/boost_1_78_0/libs/iostreams/src/zlib.cpp>
 #include <../lib/boost_1_78_0/libs/iostreams/src/gzip.cpp>
 
