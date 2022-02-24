@@ -28,28 +28,34 @@ int main() {
     vector<string> gwasHeader;
     vector<int> columnTypes; // 0-int, 1-float, 2-string, 3-bool
     int numColumns;
+    string gzipHeader;
 
     cout << "Getting starter data..." << endl;
     numColumns = countNumberColumns(gwasFileName, delimiter);
     gwasHeader = returnFileHeader(gwasFileName, numColumns, delimiter);
+    gzipHeader = returnGzipHeader();
 
 
     // 2: generates funnel format (vector of vector of strings)
-    vector<vector<string>> allBlocks;
+    vector<vector<vector<string>>> allBlocks;
 
     cout << "Generating funnel format..." << endl;
-    allBlocks = generate_block(gwasFileName, blockSize);
+    allBlocks = generate_block(gwasFileName, blockSize, delimiter, numColumns);
+    for(int b = 0; b < allBlocks.size(); b++){
+        vector<vector<string>> currBlock = allBlocks.at(b);
+        for(int c = 0; c < numColumns; c++){
+            vector<string> currCol = currBlock.at(c);
+            for(int r = 0; r < blockSize; r++){
+                cout << currCol.at(r) << ",";
+            }
+            cout << " ";
+        }
+        cout << endl;
+    }
 
     // 3: compress funnel format, return second half of header
     cout << "Compressing with gzip..." << endl;
-    string gzip_header = returnGzipHeader();
 
-    string k = "kristenalskjglaksj";
-    string compressedk = gzipCompress(k);
-    string gzipk = gzip_header+compressedk;
-
-
-    string decompressedk = gzipDecompress(gzipk);
 
 
 
