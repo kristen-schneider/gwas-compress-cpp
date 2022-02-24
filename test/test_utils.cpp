@@ -77,6 +77,50 @@ BOOST_AUTO_TEST_SUITE(testCountNumberColumns)
 BOOST_AUTO_TEST_SUITE_END()
 
 // vector<string> returnFileHeader(string gwasFileName, int numCols, char delim);
+BOOST_AUTO_TEST_SUITE(testReturnFileHeader)
 
+    BOOST_AUTO_TEST_CASE(testHeaderTab)
+    {
+        vector<string> oneHeader;
+        oneHeader.push_back("chr");
+        vector<string> fiveHeader;
+        fiveHeader.push_back("chr");
+        fiveHeader.push_back("pos");
+        fiveHeader.push_back("ref");
+        fiveHeader.push_back("alt");
+        fiveHeader.push_back("af_cases_EUR");
+        vector<string> fullHeader;
+        fullHeader.push_back("chr");
+        fullHeader.push_back("pos");
+        fullHeader.push_back("ref");
+        fullHeader.push_back("alt");
+        fullHeader.push_back("af_cases_EUR");
+        fullHeader.push_back("af_controls_EUR");
+        fullHeader.push_back("beta_EUR");
+        fullHeader.push_back("se_EUR");
+        fullHeader.push_back("pval_EUR");
+        fullHeader.push_back("low_confidence_EUR");
+
+        string oneColTab = "../data/c1-r10-tab.tsv";
+        string fiveColTab = "../data/c5-r10-tab.tsv";
+        string tenColTab = "../data/c10-r10-tab.tsv";
+        int oneCol = 1;
+        int fiveCol = 5;
+        int tenCol = 10;
+
+        char tab = '\t';
+
+        vector<string> testOneHeader = returnFileHeader(oneColTab, oneCol, tab);
+        vector<string> testFiveHeader = returnFileHeader(fiveColTab, fiveCol, tab);
+        vector<string> testTenHeader = returnFileHeader(tenColTab, tenCol, tab);
+
+        BOOST_CHECK(testOneHeader == oneHeader);
+        BOOST_CHECK(testFiveHeader == fiveHeader);
+        BOOST_CHECK(testTenHeader == fullHeader);
+
+    }
+
+
+BOOST_AUTO_TEST_SUITE_END()
 
 
