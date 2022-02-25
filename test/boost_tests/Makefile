@@ -29,3 +29,4 @@ $(TARGET): $(SRC_FILES)
 
 clean:
 	$(RM) $(TARGET)
+	rm -rf *dSYM
