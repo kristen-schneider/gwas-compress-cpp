@@ -5,7 +5,7 @@
 #ifndef GWAS_CPP_GWASFILE_H
 #define GWAS_CPP_GWASFILE_H
 
-using namespace std
+using namespace std;
 
 #include <string>
 #include <vector>
@@ -24,8 +24,8 @@ public:
     void setFileDelimiter(string setFileDelimiter);
 
     // getters
-    int getNumColumns(string gwasFileName) { return numColumns};
-    int getFileDelimiter(string gwasFileName) { return delimiter};
+    int getNumColumns(string gwasFileName) { return numColumns;};
+    string getFileDelimiter(string gwasFileName) { return delimiter;};
 };
 
 

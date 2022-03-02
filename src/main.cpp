@@ -4,7 +4,7 @@
 #include "utils.h"
 #include "funnelFormat.h"
 #include "funnelFormatCompress.h"
-#include "gzipWrapper.h"
+//#include "gzipWrapper.h"
 
 using namespace std;
 
@@ -35,7 +35,7 @@ int main() {
     cout << "Getting starter data..." << endl;
     numColumns = countNumberColumns(gwasFileName, delimiter);
     gwasHeader = returnFileHeader(gwasFileName, numColumns, delimiter);
-    gzipHeader = returnGzipHeader();
+//    gzipHeader = returnGzipHeader();
 
 
     // 2: generates funnel format (vector of vector of strings)
@@ -44,24 +44,24 @@ int main() {
     vector<vector<vector<string>>> allBlocks;
 
     allBlocks = generate_block(gwasFileName, blockSize, delimiter, numColumns);
-    for(int b = 0; b < allBlocks.size(); b++){
-        vector<vector<string>> currBlock = allBlocks.at(b);
-        for(int c = 0; c < numColumns; c++){
-            vector<string> currCol = currBlock.at(c);
-            for(int r = 0; r < currCol.size(); r++){
-                cout << currCol.at(r) << ",";
-            }
-            cout << " ";
-        }
-        cout << endl;
-    }
+//    for(int b = 0; b < allBlocks.size(); b++){
+//        vector<vector<string>> currBlock = allBlocks.at(b);
+//        for(int c = 0; c < numColumns; c++){
+//            vector<string> currCol = currBlock.at(c);
+//            for(int r = 0; r < currCol.size(); r++){
+//                cout << currCol.at(r) << ",";
+//            }
+//            cout << " ";
+//        }
+//        cout << endl;
+//    }
 
     // 3: compress funnel format, return second half of header
     cout << endl << "Compressing with gzip..." << endl;
 
     vector<string> allCompressedBlocks;
 
-    allCompressedBlocks = compressAllBlocks(allBlocks, numColumns, blockSize);
+//    allCompressedBlocks = compressAllBlocks(allBlocks, numColumns, blockSize);
 
     return 0;
 }

@@ -35,8 +35,8 @@ string compressSingleBlock(vector<vector<string>> block, int numCols){
         
         for (int elementIndex = 0; elementIndex < currentColumn.size(); elementIndex++) {
             currentElement = currentColumn.at(elementIndex);
-            string compressedElement = gzipCompress(currentElement);
-            compressedBlock += compressedElement;
+//            string compressedElement = gzipCompress(currentElement);
+//            compressedBlock += compressedElement;
         }
     }
 
