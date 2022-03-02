@@ -7,10 +7,11 @@
 
 #endif //GWAS_CPP_UTILS_H
 
-using namespace std;
 #include <string>
 #include <string>
 #include <vector>
+using namespace std;
+
 
 vector<string> splitString(string s, char delim);
 int countNumberColumns(string gwasFileName, char delim);

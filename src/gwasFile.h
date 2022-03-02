@@ -5,10 +5,11 @@
 #ifndef GWAS_CPP_GWASFILE_H
 #define GWAS_CPP_GWASFILE_H
 
-using namespace std;
 
 #include <string>
 #include <vector>
+using namespace std;
+
 
 
 class GWASFile{

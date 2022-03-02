@@ -7,8 +7,8 @@
 
 #endif //CPRACTICE_FUNNEL_FORMAT_H
 
-using namespace std;
 #include <string>
+using namespace std;
 
 vector<vector<vector<string>>> generate_block(string gwasFileName, int blockSize, char delim, int numCols);
 vector<vector<string>> transposeBlock(vector<string> block, char delim, int numCols);
