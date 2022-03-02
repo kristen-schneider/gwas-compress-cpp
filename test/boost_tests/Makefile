@@ -8,9 +8,9 @@ CC = g++
 CFLAGS  = -g \
 	-Wall \
 	-lboost_unit_test_framework \
-	-lz
+	-lz \
 
-INCLUDE = ../../src
+INCLUDE=../../src
 _INCLUDE_FILES = utils.cpp \
 	gzipWrapper.cpp
 
@@ -29,4 +29,3 @@ $(TARGET): $(SRC_FILES)
 
 clean:
 	$(RM) $(TARGET)
-	rm -rf *dSYM
