@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// vector<string> splitString(string s, char delim)
 TEST(SplitStringTest, tab){
     char delim = '\t';
     string s = "Hello\tWorld";
@@ -30,12 +31,24 @@ TEST(SplitStringTest, space){
     }
 }
 
+// int countNumberColumns(string gwasFileName, char delim)
 TEST(CountNumberColumnsTest, OverOne){
     char delim = '\t';
-    string gwasFile = "data/c10-r11-tab.tsv";
-    int numCols = 10;
+    string tenFile = "/Users/kristen/CLionProjects/gwas-cpp/data/c10-r10-tab.tsv";
+    string fiveFile = "/Users/kristen/CLionProjects/gwas-cpp/data/c5-r10-tab.tsv";
+    string oneFile = "/Users/kristen/CLionProjects/gwas-cpp/data/c1-r10-tab.tsv";
 
-    int test_numCols = countNumberColumns(gwasFile, delim);
-    EXPECT_EQ(numCols, test_numCols);
+    int tenCols = 10;
+    int fiveCols = 5;
+    int oneCol = 1;
 
+    int test_tenCols = countNumberColumns(tenFile, delim);
+    int test_fiveCols = countNumberColumns(fiveFile, delim);
+    int test_oneCol = countNumberColumns(oneFile, delim);
+
+    EXPECT_EQ(tenCols, test_tenCols);
+    EXPECT_EQ(fiveCols, test_fiveCols);
+    EXPECT_EQ(oneCol, test_oneCol);
 }
+
+// vector<string> returnFileHeader(string gwasFileName, int numCols, char delim)
