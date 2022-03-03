@@ -30,13 +30,12 @@ TEST(SplitStringTest, space){
     }
 }
 
-TEST(SplitStringTest, comma){
-    char delim = ',';
-    string s = "Hello,World";
-    vector<string> ss = {"Hello", "World"};
+TEST(CountNumberColumnsTest, OverOne){
+    char delim = '\t';
+    string gwasFile = "data/c10-r11-tab.tsv";
+    int numCols = 10;
 
-    vector<string> test_s = splitString(s, delim);
-    for (int i = 0; i < ss.size(); ++i) {
-        EXPECT_EQ(ss[i], test_s[i]) << "Vectors differ at index " << i;
-    }
+    int test_numCols = countNumberColumns(gwasFile, delim);
+    EXPECT_EQ(numCols, test_numCols);
+
 }
