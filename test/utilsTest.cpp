@@ -32,7 +32,7 @@ TEST(SplitStringTest, space){
 }
 
 // int countNumberColumns(string gwasFileName, char delim)
-TEST(CountNumberColumnsTest, OverOne){
+TEST(CountNumberColumnsTest, normal){
     char delim = '\t';
     string tenFile = "/Users/kristen/CLionProjects/gwas-cpp/data/c10-r10-tab.tsv";
     string fiveFile = "/Users/kristen/CLionProjects/gwas-cpp/data/c5-r10-tab.tsv";
@@ -52,3 +52,6 @@ TEST(CountNumberColumnsTest, OverOne){
 }
 
 // vector<string> returnFileHeader(string gwasFileName, int numCols, char delim)
+TEST(ReturnFileHeaderTest, normal){
+    vector<string> fileHeader = {"chr", "pos", "ref", "alt", }
+}
