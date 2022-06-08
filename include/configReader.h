@@ -9,4 +9,4 @@
 
 using namespace std;
 
-map read_config_file(string configFile);
+map read_config_file(string configTxt);
