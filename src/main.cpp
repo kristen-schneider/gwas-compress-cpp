@@ -12,17 +12,18 @@
 using namespace std;
 
 int main(){
-    // get parameters and argumnets from config file
+    // 0. get parameters and argumnets from config file
     string configTxt = "/home/krsc0813/gwas-compress-cpp/config.txt";
     map <string, string> configurations;
     configurations = read_config_file(configTxt);
 
-    // parameter options
     string gwasFile = configurations["gwasFile"];
     string outDir = configurations["outDir"];
     int blockSize =  stoi(configurations["blockSize"]);
+   
+    // 1. gets beginning of header
 
-    cout << gwasFile << "\n" << outDir << "\n" << blockSize << endl;
+    
     
     return 0;
 }

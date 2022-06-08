@@ -3,6 +3,8 @@
 #include <map>
 #include <string>
 
+#include "configReader.h"
+
 using namespace std;
 
 map<string, string> read_config_file(string configTxt){
