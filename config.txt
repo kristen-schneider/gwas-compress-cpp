@@ -1,0 +1,5 @@
+gwas_file /path/to/gwas.tsv
+out_dir /path/to/out_dir
+block_size 3
+compression_method fastpfor128,fastpfor128,fastpfor128,fastpfor128,fastpfor128,fastpfor12
+input_data_type 1,1,1,1,1,1,1,1,1,1
