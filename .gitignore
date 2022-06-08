@@ -1,4 +1,2 @@
-.DS_Store
-.idea/*
-cmake-build-debug/*
 gwas_files/*
+bin/*
