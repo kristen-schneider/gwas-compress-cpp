@@ -5,18 +5,20 @@
 
 using namespace std;
 
-map read_config_file(string configTxt){
+map<string, string> read_config_file(string configTxt){
     
     map<string, string> configurations;
     
     // path to config file
-    ifstream sconfigFile;
+    ifstream cFile (configTxt);
     // open config file
-    sconfigFile.open(configTxt);
-    if(!sconfigFile.is_open()){
+    //cFile.open(configTxt);
+    if(!cFile.is_open()){
         cout << "Failed to open: " << configTxt << endl;
     }
+    cFile.close();
+    cFile.seekg(0);
+    cFile.clear();
     
     return configurations;
-
 }
