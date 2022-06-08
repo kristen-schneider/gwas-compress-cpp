@@ -1,0 +1,1 @@
+gwasFile /home/krsc0813/gwas-compress-cpp/gwas_files/in/ten.tsv
