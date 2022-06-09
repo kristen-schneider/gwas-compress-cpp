@@ -13,6 +13,7 @@ using namespace std;
 
 int main(){
     // 0. get parameters and argumnets from config file
+    cout << "Loading configurations from config file..." << endl;
     string configTxt = "/home/krsc0813/gwas-compress-cpp/config.txt";
     map <string, string> configurations;
     configurations = read_config_file(configTxt);
@@ -20,7 +21,8 @@ int main(){
     string gwasFile = configurations["gwasFile"];
     string outDir = configurations["outDir"];
     int blockSize =  stoi(configurations["blockSize"]);
-   
+    cout << "Configurations loaded." << endl;
+    
     // 1. gets beginning of header
 
     
