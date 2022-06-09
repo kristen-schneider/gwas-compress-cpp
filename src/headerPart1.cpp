@@ -16,16 +16,15 @@ using namespace std;
  * num columns: int
 */
 
-int** make_header_part1(int** headerPart1, string gwasFile){
+HeaderPart1 make_header_part1(){
+    HeaderPart1 headerPart1;
+    headerPart1.magicNumber = magic_number();
+    headerPart1.versionNumber = version_number();
+    headerPart1.delimiter = delimiter();
 
-    int magicNumber = magic_number();
-    headerPart1[0] = &magicNumber;
-    int versionNumber = version_number();
-    headerPart1[1] = &versionNumber;
     return headerPart1;
-
 }
 
-int magic_number(){ return 1; }
-int version_number(){ return 1; }
-
+int magic_number(){ return 1;}
+int version_number(){ return 1;}
+char delimiter(){return '\t';}
