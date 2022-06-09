@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "configReader.h"
+#include "headerPart1.h"
 //#include "funnelFormat.h"
 //#include "funnelFormatCompress.h"
 //#include "utils.h"
@@ -22,10 +23,18 @@ int main(){
     string outDir = configurations["outDir"];
     int blockSize =  stoi(configurations["blockSize"]);
     cout << "Configurations loaded." << endl;
-    
+    cout << endl;
     // 1. gets beginning of header
-
-    
+    cout << "Getting header part 1..." << endl;
+    int headerNumElements = 2;
+    int** headerPart1 = new int*[headerNumElements];
+    make_header_part1(headerPart1, "gwasFile");
+ 
+    for (int i = 0; i < headerNumElements; i++){
+        cout << headerPart1[i] << "\t" << *headerPart1[i] << endl;
+    }
+    cout << "Header Part1 complete." << endl;
+    cout << endl;   
     
     return 0;
 }
