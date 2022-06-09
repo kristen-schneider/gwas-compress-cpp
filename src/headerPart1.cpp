@@ -27,8 +27,8 @@ HeaderPart1 make_header_part1(string gwasFile){
     cout << "File Header: " << endl;
     cout << "\tMagic Number: " << headerPart1.magicNumber << endl;
     cout << "\tVersion Number: " << headerPart1.versionNumber << endl;
-    cout << "\tDelimiter: "
-        if (headerPart1.delimiter == ' '){ cout << "space" 
+    cout << "\tDelimiter: ";
+        if (headerPart1.delimiter == ' '){ cout << "space" << endl;}
         else{ cout << headerPart1.delimiter << endl;}
     cout << "\tNumber of Columns: " << headerPart1.numColumns << endl;
     cout << "\tColumn Names: " ;//<< headerPart1.magicNumber << endl;
