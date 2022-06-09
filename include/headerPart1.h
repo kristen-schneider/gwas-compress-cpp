@@ -11,12 +11,14 @@ struct HeaderPart1{
     int magicNumber;
     int versionNumber;
     char delimiter;
+    int numColumns;
     string colNames[MAX_NUM_COLS];
     int colDecompressionTypes[MAX_NUM_COLS];
 };
 #endif // HEADER_PART1
 
-HeaderPart1 make_header_part1();
+HeaderPart1 make_header_part1(string gwasFile);
 int magic_number();
 int version_number();
-char delimiter();
+char detect_delimiter(string gwasFile);
+int number_of_columns(string gwasFile);

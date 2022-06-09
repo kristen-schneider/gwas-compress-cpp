@@ -19,15 +19,18 @@ int main(){
     map <string, string> configurations;
     configurations = read_config_file(configTxt);
 
+    // assigning variables to configurations
     string gwasFile = configurations["gwasFile"];
     string outDir = configurations["outDir"];
     int blockSize =  stoi(configurations["blockSize"]);
+    
     cout << "Configurations loaded." << endl;
     cout << endl;
     
+    
     // 1. gets beginning of header
     cout << "Getting header part 1..." << endl;
-    HeaderPart1 headerPart1 = make_header_part1();
+    HeaderPart1 headerPart1 = make_header_part1(gwasFile);
     cout << "Header Part1 complete." << endl;
     cout << endl;   
     
