@@ -19,6 +19,7 @@ conda activate gwas-compress
 g++ $src_dir"main.cpp" \
     $src_dir"configReader.cpp" \
     $src_dir"headerPart1.cpp" \
+    $src_dir"utils.cpp" \
     -I $include_dir \
     -o $bin_dir"test"
 
