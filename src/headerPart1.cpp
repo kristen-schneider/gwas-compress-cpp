@@ -3,6 +3,7 @@
 #include <string>
 
 #include "headerPart1.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -18,10 +19,16 @@ using namespace std;
 */
 
 HeaderPart1 make_header_part1(string gwasFile){
+    // read first two lines of file
+    string* firstTwoLines = new string[2];
+    firstTwoLines = read_first_two_lines(gwasFile, firstTwoLines);
+    string gwasHeader = firstTwoLines[0];    
+    string gwasData = firstTwoLines[1];    
+
     HeaderPart1 headerPart1;
     headerPart1.magicNumber = magic_number();
     headerPart1.versionNumber = version_number();
-    headerPart1.delimiter = detect_delimiter(gwasFile); 
+    headerPart1.delimiter = detect_delimiter(gwasHeader); 
     
     // print header
     cout << "File Header: " << endl;
@@ -42,34 +49,22 @@ int magic_number(){ return 1;}
 
 int version_number(){ return 1;}
 
-char detect_delimiter(string gwasFile){
+char detect_delimiter(string gwasHeader){
     char delimiter;
-    char delimiterCheck;
-    
-    ifstream gFile;
-    gFile.open(gwasFile);
-    
-    if(!gFile.is_open()){
-        cerr << "Failed to open: " << gwasFile << endl;
-    }else{  
-        string line;
-        getline(gFile, line); 
-        if (line.find(' ') != std::string::npos){
-            delimiter = ' ';
-        } else if(line.find('\t') != std::string::npos) {
-            delimiter = '\t';
-        } else if(line.find(',') != std::string::npos) {
-            delimiter = ',';
-        } else {cerr << "no delimiter detected.";}
-            
-    }
-    gFile.close();  
-    gFile.seekg(0);
-    gFile.clear();
+    if (gwasHeader.find(' ') != std::string::npos){
+        delimiter = ' ';
+    } else if(gwasHeader.find('\t') != std::string::npos) {
+    delimiter = '\t';
+    } else if(gwasHeader.find(',') != std::string::npos) {
+        delimiter = ',';
+    } else {cerr << "no delimiter detected.";}
+       
     return delimiter;
 }
 
 int number_of_columns(string gwasFile){
     int numColumns = 0;
+
     return numColumns;
 }
+
