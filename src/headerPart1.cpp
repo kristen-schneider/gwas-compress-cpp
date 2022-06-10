@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <string>
 
 #include "headerPart1.h"
@@ -28,7 +29,8 @@ HeaderPart1 make_header_part1(string gwasFile){
     HeaderPart1 headerPart1;
     headerPart1.magicNumber = magic_number();
     headerPart1.versionNumber = version_number();
-    headerPart1.delimiter = detect_delimiter(gwasHeader); 
+    headerPart1.delimiter = detect_delimiter(gwasHeader);
+    headerPart1.numColumns = count_num_columns(gwasHeader, headerPart1.delimiter);
     
     // print header
     cout << "File Header: " << endl;
@@ -51,7 +53,7 @@ int version_number(){ return 1;}
 
 char detect_delimiter(string gwasHeader){
     char delimiter;
-    if (gwasHeader.find(' ') != std::string::npos){
+    if (gwasHeader.find(' ') != string::npos){
         delimiter = ' ';
     } else if(gwasHeader.find('\t') != std::string::npos) {
     delimiter = '\t';
@@ -62,9 +64,13 @@ char detect_delimiter(string gwasHeader){
     return delimiter;
 }
 
-int number_of_columns(string gwasFile){
+int count_num_columns(string gwasHeader, char delimiter){
     int numColumns = 0;
-
+    string column;
+    stringstream hSS (gwasHeader);
+    while(getline (hSS, column, delimiter)){
+        numColumns++;
+    }
     return numColumns;
 }
 

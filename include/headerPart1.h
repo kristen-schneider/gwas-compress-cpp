@@ -21,4 +21,4 @@ HeaderPart1 make_header_part1(string gwasFile);
 int magic_number();
 int version_number();
 char detect_delimiter(string line);
-int number_of_columns(string line);
+int count_num_columns(string line, char delimiter);
