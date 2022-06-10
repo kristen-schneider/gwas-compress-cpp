@@ -2,72 +2,30 @@
 // Created by Kristen Schneider on 2/22/22.
 //
 
-#include <string>
-#include <sstream>
-#include <vector>
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <string>
+
 #include "utils.h"
 using namespace std;
 
-vector<string> splitString(string s, char delim){
-    string h;
-    vector<string> vectorString;
-    stringstream ss;
+string* read_first_two_lines(string inFile, string* lineArrray){
+    string firstLine;
+    string secondLine;
 
-    ss.str(s);
-
-    getline(ss, h, delim);
-    vectorString.push_back(h);
-    while(getline(ss, h, delim)){
-        vectorString.push_back(h);
+    ifstream iFile;
+    iFile.open(inFile);
+    if(!iFile.is_open()){
+        cerr << "Failed to open: " << inFile << endl;
+    }else{
+        getline(iFile, firstLine);
+        getline(iFile, secondLine);
     }
-    return vectorString;
+    iFile.close();
+    iFile.seekg(0);
+    iFile.clear();
+    
+    lineArrray[0] = firstLine;
+    lineArrray[1] = secondLine;
+    return lineArrray;
 }
-
-int countNumberColumns(string gwasFileName, char delim){
-    int numCols = 0;
-    ifstream gwasFile;
-    string header;
-    string h;
-    vector<string> vectorHeader;
-
-    // opening file
-    gwasFile.open(gwasFileName);
-    if (!gwasFile.is_open()){
-        cout << "Cannot open file: " << gwasFileName << endl;
-        EXIT_FAILURE;
-    }
-
-    // read first line (header)
-    getline(gwasFile, header);
-    // parse header
-    vectorHeader = splitString(header, delim);
-    numCols = vectorHeader.size();
-
-    // closing file
-    gwasFile.close();
-    return numCols;
-}
-
-vector<string> returnFileHeader(string gwasFileName, int numCols, char delim){
-    ifstream gwasFile;
-    string header;
-    string h;
-    vector<string> vectorHeader;
-
-    // opening file
-    gwasFile.open(gwasFileName);
-    if (!gwasFile.is_open()){
-        cout << "Cannot open file: " << gwasFileName << endl;
-        EXIT_FAILURE;
-    }
-
-    // read first line (header)
-    getline(gwasFile, header);
-    // parse header
-    vectorHeader = splitString(header, delim);
-
-    return vectorHeader;
-}
-
