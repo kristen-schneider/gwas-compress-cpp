@@ -16,7 +16,7 @@ struct HeaderPart1{
 };
 #endif // HEADER_PART1
 
-HeaderPart1 make_header_part1(string gwasFile);
+HeaderPart1 make_header_part1(string gwasFile, int maxNumCols);
 int magic_number();
 int version_number();
 char detect_delimiter(string gwasHeader);
