@@ -15,15 +15,15 @@ gwas_file=$data_dir""
 source ~/anaconda3/etc/profile.d/conda.sh
 conda activate gwas-compress
 
-# compile and rrun
+# compile and run
 g++ $src_dir"main.cpp" \
     $src_dir"configReader.cpp" \
     $src_dir"headerPart1.cpp" \
     $src_dir"utils.cpp" \
     -I $include_dir \
-    -o $bin_dir"test"
+    -o $bin_dir"compress"
 
-$bin_dir"test"
+$bin_dir"compress"
 
 #echo "Starting Program."
 #for index in {0..3}
