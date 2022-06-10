@@ -23,6 +23,7 @@ int main(){
     // assigning variables to configurations
     string gwasFile = configurations["gwasFile"];
     string outDir = configurations["outDir"];
+    int maxNumCols = stoi(configurations["maxNumColumns"]);
     int blockSize =  stoi(configurations["blockSize"]);
     
     cout << "Configurations loaded." << endl;
@@ -31,7 +32,7 @@ int main(){
     
     // 1. gets beginning of header
     cout << "Getting header part 1..." << endl;
-    HeaderPart1 headerPart1 = make_header_part1(gwasFile);
+    HeaderPart1 headerPart1 = make_header_part1(gwasFile, maxNumCols);
     cout << "Header Part1 complete." << endl;
     cout << endl;   
     

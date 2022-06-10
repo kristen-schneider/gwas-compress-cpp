@@ -1,3 +1,4 @@
 gwasFile /home/krsc0813/gwas-compress-cpp/gwas_files/in/ten.tsv
 outDir /home/krsc0813/gwas-compress-cpp/gwas_files/out/
+maxNumColumns 10
 blockSize 3
