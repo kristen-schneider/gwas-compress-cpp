@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <sstream>
 #include <string>
 
@@ -19,17 +20,15 @@ using namespace std;
  * num columns: int
 */
 
-#define MAX_NUM_COLS 10
-
-HeaderPart1 make_header_part1(string gwasFile){
+HeaderPart1 make_header_part1(string gwasFile, int maxNumCols){
     // read first two lines of file
     string* firstTwoLines = new string[2];
     firstTwoLines = read_first_two_lines(gwasFile, firstTwoLines);
     string gwasHeader = firstTwoLines[0];    
     string gwasData = firstTwoLines[1];    
     // allocate space for colNames and decompressionTypes
-    string* colNames = new string[MAX_NUM_COLS];
-    int* decompressionTypes = new int[MAX_NUM_COLS];
+    string* colNames = new string[maxNumCols];
+    int* decompressionTypes = new int[maxNumCols];
 
     HeaderPart1 headerPart1;
     headerPart1.magicNumber = magic_number();
@@ -49,7 +48,7 @@ HeaderPart1 make_header_part1(string gwasFile){
         else{ cout << headerPart1.delimiter << endl;}
     cout << "\tNumber of Columns: " << headerPart1.numColumns << endl;
     cout << "\tColumn Names: " << endl;
-        for (int i = 0; i < MAX_NUM_COLS; i++){
+        for (int i = 0; i < maxNumCols; i++){
             cout << "\t\t" << headerPart1.colNames[i] << endl;
         }
     cout << "\tColumn Decompression Types: " << endl;
@@ -97,6 +96,15 @@ string* gwas_header_array(string gwasHeader, string* gwasHeaderArray, char delim
 }
 
 int* decompression_types_array(string gwasData, int* decompressionTypes, char delimiter){
+    string columnHeader;
+    string dataType;
+    stringstream hSS (gwasData);
+    int i = 0;
+    while(getline (hSS, columnHeader, delimiter)){
+        cout << get_data_type(columnHeader) << endl;;
+        i++;
+    }    
+
     return decompressionTypes;
 }
 
