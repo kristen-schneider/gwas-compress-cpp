@@ -9,11 +9,15 @@
 
 # 1. Compile and run, normally
 <br>
-### To compile and run compression using g++<br>
+### ...compression using g++<br>
 <code>g++ main.cpp configReader.cpp -I ../include/ -o ../bin/tests</code><br>
 <br>
 <code>../bin tests</code><br>
 <br>
-### To compile and run with githubactions flow [basic github actions](https://www.incredibuild.com/blog/using-github-actions-with-your-c-project)
+### ...compression with bash script
 <br>
+<code>run bash.sh</code><br\
+### ...compression with githubactions flow [basic github actions](https://www.incredibuild.com/blog/using-github-actions-with-your-c-project)
+<br>
+<code>./configure</code><br>
 <code>make</code><br>
