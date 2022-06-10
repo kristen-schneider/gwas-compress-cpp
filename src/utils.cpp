@@ -47,7 +47,7 @@ string get_data_type(string sData){
             bool trueFalse = false;    
     
             for (int i = 0; i < sData.length(); i++){
-                if (tolower(sData[i]) == t[i] || tolower(sData[i]) == f[i]){
+                if ((tolower(sData[i]) == t[i] || tolower(sData[i]) == f[i]) && sData.length() > 1){
                     trueFalse = true;
                 } else{trueFalse = false;}
             }

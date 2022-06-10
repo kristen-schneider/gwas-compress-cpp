@@ -28,7 +28,7 @@ HeaderPart1 make_header_part1(string gwasFile, int maxNumCols){
     string gwasData = firstTwoLines[1];    
     // allocate space for colNames and decompressionTypes
     string* colNames = new string[maxNumCols];
-    int* decompressionTypes = new int[maxNumCols];
+    string* decompressionTypes = new string[maxNumCols];
 
     HeaderPart1 headerPart1;
     headerPart1.magicNumber = magic_number();
@@ -52,7 +52,9 @@ HeaderPart1 make_header_part1(string gwasFile, int maxNumCols){
             cout << "\t\t" << headerPart1.colNames[i] << endl;
         }
     cout << "\tColumn Decompression Types: " << endl;
-
+        for (int i = 0; i < maxNumCols; i++){
+            cout << "\t\t" << headerPart1.colDecompressionTypes[i] << endl;
+        }
     return headerPart1;
 }
 
@@ -95,13 +97,13 @@ string* gwas_header_array(string gwasHeader, string* gwasHeaderArray, char delim
     return gwasHeaderArray;
 }
 
-int* decompression_types_array(string gwasData, int* decompressionTypes, char delimiter){
+string* decompression_types_array(string gwasData, string* decompressionTypes, char delimiter){
     string columnHeader;
     string dataType;
     stringstream hSS (gwasData);
     int i = 0;
     while(getline (hSS, columnHeader, delimiter)){
-        cout << get_data_type(columnHeader) << endl;;
+        decompressionTypes[i] = get_data_type(columnHeader);
         i++;
     }    
 

@@ -12,7 +12,7 @@ struct HeaderPart1{
     char delimiter;
     int numColumns;
     string* colNames;
-    int* colDecompressionTypes;
+    string* colDecompressionTypes;
 };
 #endif // HEADER_PART1
 
@@ -22,4 +22,4 @@ int version_number();
 char detect_delimiter(string gwasHeader);
 int count_num_columns(string gwasHeeader, char delimiter);
 string* gwas_header_array(string gwasHeader, string* gwasHeaderArray, char delimiter);
-int* decompression_types_array(string gwasData, int* decompressionTypes, char delimiter);
+string* decompression_types_array(string gwasData, string* decompressionTypes, char delimiter);
