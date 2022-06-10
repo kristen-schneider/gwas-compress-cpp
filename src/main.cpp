@@ -5,6 +5,7 @@
 
 #include "configReader.h"
 #include "headerPart1.h"
+#include "utils.h"
 //#include "funnelFormat.h"
 //#include "funnelFormatCompress.h"
 //#include "utils.h"

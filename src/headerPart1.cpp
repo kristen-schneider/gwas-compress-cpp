@@ -19,19 +19,26 @@ using namespace std;
  * num columns: int
 */
 
+#define MAX_NUM_COLS 10
+
 HeaderPart1 make_header_part1(string gwasFile){
     // read first two lines of file
     string* firstTwoLines = new string[2];
     firstTwoLines = read_first_two_lines(gwasFile, firstTwoLines);
     string gwasHeader = firstTwoLines[0];    
     string gwasData = firstTwoLines[1];    
+    // allocate space for colNames and decompressionTypes
+    string* colNames = new string[MAX_NUM_COLS];
+    int* decompressionTypes = new int[MAX_NUM_COLS];
 
     HeaderPart1 headerPart1;
     headerPart1.magicNumber = magic_number();
     headerPart1.versionNumber = version_number();
     headerPart1.delimiter = detect_delimiter(gwasHeader);
     headerPart1.numColumns = count_num_columns(gwasHeader, headerPart1.delimiter);
-    
+    headerPart1.colNames = gwas_header_array(gwasHeader, colNames, headerPart1.delimiter);
+    headerPart1.colDecompressionTypes = decompression_types_array(gwasData, decompressionTypes, headerPart1.delimiter);
+
     // print header
     cout << "File Header: " << endl;
     cout << "\tMagic Number: " << headerPart1.magicNumber << endl;
@@ -41,8 +48,11 @@ HeaderPart1 make_header_part1(string gwasFile){
         else if(headerPart1.delimiter == '\t'){ cout << "tab" << endl;}
         else{ cout << headerPart1.delimiter << endl;}
     cout << "\tNumber of Columns: " << headerPart1.numColumns << endl;
-    cout << "\tColumn Names: " ;//<< headerPart1.magicNumber << endl;
-    cout << "\tColumn Decompression Types: ";// << headerPart1.magicNumber << endl;
+    cout << "\tColumn Names: " << endl;
+        for (int i = 0; i < MAX_NUM_COLS; i++){
+            cout << "\t\t" << headerPart1.colNames[i] << endl;
+        }
+    cout << "\tColumn Decompression Types: " << endl;
 
     return headerPart1;
 }
@@ -72,5 +82,21 @@ int count_num_columns(string gwasHeader, char delimiter){
         numColumns++;
     }
     return numColumns;
+}
+
+string* gwas_header_array(string gwasHeader, string* gwasHeaderArray, char delimiter){
+    string columnHeader;
+    stringstream hSS (gwasHeader);
+    int i = 0;
+    while(getline (hSS, columnHeader, delimiter)){
+        gwasHeaderArray[i] = columnHeader;
+        i++;
+    }
+
+    return gwasHeaderArray;
+}
+
+int* decompression_types_array(string gwasData, int* decompressionTypes, char delimiter){
+    return decompressionTypes;
 }
 
