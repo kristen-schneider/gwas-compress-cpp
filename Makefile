@@ -13,7 +13,7 @@ all:
 		-I /home/krsc0813/anaconda3/envs/gwas-compress/include/ \
 		-L /home/krsc0813/anaconda3/envs/gwas-compress/lib \
 		-lcppunit \
-		-o ./bin/testc	
+		-o ./bin/compressTest
 
 test:
 	chmod +x ./bin/compress
