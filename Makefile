@@ -6,7 +6,17 @@ all:
 		-I ./include \
 		-o ./bin/compress
 	
-	g++ ./test/compressTest.cpp \
+	g++ TestCompressMain.cpp \
+		TestUtils.cpp \
+		../src/utils.cpp \
+		-I ../include/ \
+		-I /home/krsc0813/anaconda3/envs/gwas-compress/include/ \
+		-L /home/krsc0813/anaconda3/envs/gwas-compress/lib \
+		-lcppunit \
+		-o ./bin/testc	
+
+	
+	#g++ ./test/compressTest.cpp \
 		-I /home/krsc0813/anaconda3/envs/gwas-compress/include/ \
 		-L /home/krsc0813/anaconda3/envs/gwas-compress/lib/ \
 		-lcppunit \

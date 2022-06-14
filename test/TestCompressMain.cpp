@@ -14,7 +14,5 @@ int main(int argc, char* argv[]){
     runner.addTest(suite);
     bool wasSucessful = runner.run();
 
-    char* c = (char*) malloc(10 * sizeof (char));
-    scanf (c,"%c");
     return wasSucessful ? 0 : 1;
 }
