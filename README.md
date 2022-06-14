@@ -10,7 +10,8 @@ install [cppunit](http://cppunit.sourceforge.net/doc/1.8.0/) <code>conda install
 ## ...compression using g++<br>
 <code>g++ main.cpp configReader.cpp -I ../include/ -o ../bin/tests</code><br>
 <code>../bin tests</code><br>
-
+To run cppunit tests:<br>
+<code>g++ TestCompressMain.cpp TestUtils.cpp ../src/utils.cpp -I ../include/ -I /home/krsc0813/anaconda3/envs/gwas-compress/include/ -L /home/krsc0813/anaconda3/envs/gwas-compress/lib -lcppunit -o testc</code><br>
 ## ...compression with bash script
 <code>bash run.sh</code><br>
 
