@@ -2,6 +2,8 @@
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>
 
+#include "headerPart1.h"
+#include "TestHeaderPart1.h"
 #include "utils.h"
 #include "TestUtils.h"
 

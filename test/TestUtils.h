@@ -1,5 +1,5 @@
 #ifndef TestUtils_h
-#define TestStudent_h
+#define TestUtils_h
 
 #include <cppunit/extensions/HelperMacros.h>
 

@@ -8,7 +8,9 @@ all:
 	
 	g++ ./test/TestCompressMain.cpp \
 		./test/TestUtils.cpp \
+		./test/TestHeaderPart1.cpp \
 		./src/utils.cpp \
+		./src/headerPart1.cpp \
 		-I ./include/ \
 		-I /home/krsc0813/anaconda3/envs/gwas-compress/include/ \
 		-L /home/krsc0813/anaconda3/envs/gwas-compress/lib \
