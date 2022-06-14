@@ -13,5 +13,4 @@
 using namespace std;
 
 string* read_first_two_lines(string inFile, string* lineArray);
-string get_data_type(string sData);
-int easyOne(void);
+int get_data_type(string sData);
