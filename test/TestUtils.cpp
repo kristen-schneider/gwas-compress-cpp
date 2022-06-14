@@ -14,5 +14,5 @@ UtilsTest::tearDown(){}
 CPPUNIT_TEST_SUITE_REGISTRATION( UtilsTest );
 
 void UtilsTest::testDataType(){
-    CPPUNIT_ASSERT_EQUAL(, 
+    CPPUNIT_ASSERT_EQUAL(1, easyOne()) 
 }

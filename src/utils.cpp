@@ -65,3 +65,5 @@ string get_data_type(string sData){
     }
     return dataType;
 }
+
+int easyOne(){ return 1; }
